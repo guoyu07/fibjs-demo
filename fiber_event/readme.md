@@ -1,7 +1,7 @@
 ###Callback Yield fiber 对比
 
 ####Callback
-```
+```javascript
     var fs = require("fs");
     fs.readFile('readme.md', function(err, data) {
       if (err) throw err;
@@ -11,7 +11,7 @@
 ```
 
 ####Yield
-```
+```javascript
     var fs = require("fs");
     function *readFile(fname, callback) {
     	yield fs.readFile(fname, callback);
@@ -24,7 +24,7 @@
 ```
 
 ####fibjs
-```
+```javascript
     var fs = require("fs");
     try {
     	var file = fs.readFile('readme.md1');
