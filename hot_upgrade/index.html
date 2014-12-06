@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        window.onload = function() {
+            function httpQuery(url) {
+                var xhr = new XMLHttpRequest();
+                xhr.open("get", url, false);
+                xhr.send();
+                if (+xhr.responseText === 404)
+                    return false;
+                return xhr.responseText;
+            }
+
+            setInterval(function() {
+                document.querySelector("#d").innerHTML = httpQuery("http://127.0.0.1:8080");
+            }, 1000);
+
+        }
+    </script>
+</head>
+<body id="body">
+    <h1 id="d"></h1>
+</body>
+</html>
