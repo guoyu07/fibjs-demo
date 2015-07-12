@@ -1,11 +1,10 @@
 var http = require("http");
 var vm = require("vm");
+var mq = require("mq");
 var coroutine = require("coroutine");
 
 function new_web() {
-	return new vm.SandBox({
-		mq: require("mq")
-	}).require("./web.js");
+	return new vm.SandBox({mq: mq}).require("./web.js");
 }
 
 var svr = new http.Server(8080, new_web());
